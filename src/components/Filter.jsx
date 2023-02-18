@@ -1,14 +1,28 @@
 import { Button, Stack } from '@chakra-ui/react';
-import * as React from 'react';
+import { useFilter } from '../store';
 
-export const Filter = (props) => {
-    const filter = 'all';
+const Filter = () => {
+    const { filter, setFilter } = useFilter();
 
     return (
-        <Stack spacing={2} direction='row' mt='8'>
-            <Button disabled={filter === 'all'}>All</Button>
-            <Button disabled={filter === 'uncomleted'}>Not completed</Button>
-            <Button disabled={filter === 'comleted'}>Completed</Button>
+        <Stack spacing={2} direction="row" mt="8">
+            <Button disabled={filter === 'all'} onClick={() => setFilter('all')}>
+                All
+            </Button>
+            <Button
+                disabled={filter === 'uncompleted'}
+                onClick={() => setFilter('uncompleted')}
+            >
+                Not completed
+            </Button>
+            <Button
+                disabled={filter === 'completed'}
+                onClick={() => setFilter('completed')}
+            >
+                Completed
+            </Button>
         </Stack>
     );
 };
+
+export { Filter };

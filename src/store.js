@@ -45,3 +45,8 @@ export const useTodos = create((set, get) => ({
     })
 
 }))
+
+export const useFilter = create(set => ({
+    filter: 'all',
+    setFilter: (value) => set({ filter: value })
+  }))
